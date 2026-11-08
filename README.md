@@ -15,11 +15,11 @@ Run `uv cache clean` when you want uv to resolve the package again.
 
 ## Install
 
-Install the plugin from this repository's marketplace in Claude Code:
+Install the plugin from the Sinon marketplace in Claude Code:
 
 ```sh
-claude plugin marketplace add ririnto/ddgs-plugin
-claude plugin install ddgs-plugin@ddgs-plugin
+claude plugin marketplace add ririnto/sinon
+claude plugin install ddgs-plugin@sinon
 ```
 
 For local development, load the package in a new session:
