@@ -42,7 +42,7 @@ const readJson = async (filename, schema) => {
 await test("both hosts declare the same plugin and the same stdio server", async () => {
   const claude = await readJson(".claude-plugin/plugin.json", manifestSchema);
   const codex = await readJson(".codex-plugin/plugin.json", manifestSchema);
-  assert.equal(claude.name, "ddgs-mcp");
+  assert.equal(claude.name, "ddgs-plugin");
   assert.equal(codex.name, claude.name);
   assert.equal(codex.version, claude.version);
   const claudeMcp = await readJson(claude.mcpServers, mcpSchema);
@@ -71,15 +71,15 @@ await test("the self-marketplace catalogs publish the plugin from the repository
     ".agents/plugins/marketplace.json",
     marketplaceSchema
   );
-  assert.equal(claude.name, "ddgs-mcp");
+  assert.equal(claude.name, "ddgs-plugin");
   assert.equal(codex.name, claude.name);
   assert.deepEqual(
     claude.plugins.map(({ name, source }) => [name, source]),
-    [["ddgs-mcp", "./"]]
+    [["ddgs-plugin", "./"]]
   );
   assert.deepEqual(
     codex.plugins.map(({ name, source }) => [name, source]),
-    [["ddgs-mcp", { path: "./", source: "local" }]]
+    [["ddgs-plugin", { path: "./", source: "local" }]]
   );
 });
 

@@ -2,11 +2,11 @@
   "interface": {
     "displayName": "DDGS MCP"
   },
-  "name": "ddgs-mcp",
+  "name": "ddgs-plugin",
   "plugins": [
     {
       "category": "Development",
-      "name": "ddgs-mcp",
+      "name": "ddgs-plugin",
       "policy": {
         "authentication": "ON_INSTALL",
         "installation": "AVAILABLE"

@@ -18,8 +18,8 @@ Run `uv cache clean` when you want uv to resolve the package again.
 Install the plugin from this repository's marketplace in Claude Code:
 
 ```sh
-claude plugin marketplace add ririnto/ddgs-mcp
-claude plugin install ddgs-mcp@ddgs-mcp
+claude plugin marketplace add ririnto/ddgs-plugin
+claude plugin install ddgs-plugin@ddgs-plugin
 ```
 
 For local development, load the package in a new session:

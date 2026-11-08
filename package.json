@@ -1,5 +1,5 @@
 {
-  "name": "@ririnto/ddgs-mcp",
+  "name": "@ririnto/ddgs-plugin",
   "version": "0.1.0",
   "private": true,
   "description": "Plugin repository that exposes the upstream DDGS web search and content extraction MCP server.",

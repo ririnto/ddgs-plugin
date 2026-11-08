@@ -79,7 +79,7 @@ await test("the diagram rule keeps the first UTF-16 column on CRLF lines", () =>
 
 await test("the repository CLI configuration loads and enforces the diagram rule", async (t) => {
   const directory = await mkdtemp(
-    path.join(tmpdir(), "ddgs-mcp-markdown-rule-")
+    path.join(tmpdir(), "ddgs-plugin-markdown-rule-")
   );
   t.after(async () => {
     await rm(directory, { force: true, recursive: true });

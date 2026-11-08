@@ -1,5 +1,5 @@
 {
-  "name": "ddgs-mcp",
+  "name": "ddgs-plugin",
   "version": "2026.11.08.01",
   "description": "DDGS web search and content extraction MCP tools.",
   "author": {
@@ -7,7 +7,7 @@
   },
   "license": "MIT",
   "mcpServers": "./.mcp.json",
-  "homepage": "https://github.com/ririnto/ddgs-mcp",
-  "repository": "https://github.com/ririnto/ddgs-mcp",
+  "homepage": "https://github.com/ririnto/ddgs-plugin",
+  "repository": "https://github.com/ririnto/ddgs-plugin",
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json"
 }
