@@ -1,0 +1,20 @@
+{
+  "interface": {
+    "displayName": "DDGS MCP"
+  },
+  "name": "ddgs-mcp",
+  "plugins": [
+    {
+      "category": "Development",
+      "name": "ddgs-mcp",
+      "policy": {
+        "authentication": "ON_INSTALL",
+        "installation": "AVAILABLE"
+      },
+      "source": {
+        "path": "./",
+        "source": "local"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "description": "Self-marketplace catalog for the ddgs-mcp plugin repository.",
+  "name": "ddgs-mcp",
+  "owner": {
+    "name": "ririnto"
+  },
+  "plugins": [
+    {
+      "author": {
+        "name": "ririnto"
+      },
+      "category": "development",
+      "description": "DDGS web search and content extraction MCP tools.",
+      "homepage": "https://github.com/ririnto/ddgs-mcp",
+      "keywords": ["ddgs", "web-search", "mcp", "content-extraction"],
+      "license": "MIT",
+      "name": "ddgs-mcp",
+      "repository": "https://github.com/ririnto/ddgs-mcp",
+      "source": "./"
+    }
+  ]
+}
