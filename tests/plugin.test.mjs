@@ -19,6 +19,7 @@ const mcpSchema = z.looseObject({
     z.looseObject({
       args: z.array(z.string()),
       command: z.string(),
+      env: z.record(z.string(), z.string()),
       type: z.string()
     })
   )
@@ -52,6 +53,7 @@ await test("both hosts declare the same plugin and the same stdio server", async
   assert.deepEqual(codexServer, claudeServer);
   assert.equal(claudeServer.command, "uvx");
   assert.equal(claudeServer.type, "stdio");
+  assert.deepEqual(claudeServer.env, { UV_SYSTEM_CERTS: "true" });
   assert.deepEqual(claudeServer.args, [
     "--from",
     "ddgs[mcp]",
