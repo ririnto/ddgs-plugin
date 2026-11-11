@@ -11,7 +11,10 @@
         "ddgs",
         "mcp"
       ],
-      "type": "stdio"
+      "type": "stdio",
+      "env": {
+        "UV_SYSTEM_CERTS": "true"
+      }
     }
   }
 }

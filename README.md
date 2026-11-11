@@ -9,6 +9,9 @@ The plugin declares the server configuration and installs the published `ddgs` p
 The server runs over stdio through `uvx`.
 The `ddgs[mcp]` requirement installs the optional dependencies the MCP server needs.
 The `--with pip-system-certs` option adds operating system certificate support to the same tool environment.
+Both host configurations also set `UV_SYSTEM_CERTS=true` so `uvx` uses the system certificate verifier when downloading packages.
+This setting requires uv 0.11.0 or later and preserves TLS certificate verification.
+See the [uv certificate documentation](https://docs.astral.sh/uv/concepts/authentication/certificates/).
 The runtime requires `uv` and a Python version supported by the upstream package.
 `uvx` reuses its ephemeral tool environment in the default uv cache between launches.
 Run `uv cache clean` when you want uv to resolve the package again.
