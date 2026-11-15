@@ -196,10 +196,11 @@ if (
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   const root = fileURLToPath(new URL("../", import.meta.url));
-  const directory = path.join(root, ".github/ISSUE_TEMPLATE");
-  const files = readdirSync(directory, { withFileTypes: true })
+  const files = readdirSync(path.join(root, ".github/ISSUE_TEMPLATE"), {
+    withFileTypes: true
+  })
     .filter((entry) => entry.isFile() && entry.name.endsWith(".yaml"))
-    .map((entry) => path.join(directory, entry.name))
+    .map((entry) => path.join(root, ".github/ISSUE_TEMPLATE", entry.name))
     .toSorted();
   const forms = files.map((file) => ({
     content: readFileSync(file, "utf-8"),
