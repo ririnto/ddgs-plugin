@@ -1,13 +1,10 @@
 {
+  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "allowJs": true,
     "checkJs": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "noEmit": true,
-    "strictNullChecks": true,
-    "target": "ESNext",
-    "types": ["node"]
-  }
+    "noEmit": true
+  },
+  "include": ["**/*", "**/.*/**/*"]
 }
