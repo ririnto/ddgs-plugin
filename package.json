@@ -19,7 +19,7 @@
     "pre-commit": "run-s check",
     "pre-push": "run-s check",
     "prepare": "husky",
-    "check:types": "tsc --project jsconfig.json --noEmit"
+    "check:types": "tsc --project tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@tsconfig/node-lts": "catalog:",
