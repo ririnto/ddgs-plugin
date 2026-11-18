@@ -1,12 +1,28 @@
 {
   "name": "ddgs-plugin",
-  "version": "2026.11.20",
+  "version": "2026.11.19.01",
   "description": "DDGS web search and content extraction MCP tools.",
   "author": {
     "name": "ririnto"
   },
   "license": "MIT",
-  "mcpServers": "./mcp.json",
+  "mcpServers": {
+    "ddgs": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "ddgs[mcp]",
+        "--with",
+        "pip-system-certs",
+        "ddgs",
+        "mcp"
+      ],
+      "type": "stdio",
+      "env": {
+        "UV_SYSTEM_CERTS": "true"
+      }
+    }
+  },
   "homepage": "https://github.com/ririnto/ddgs-plugin",
   "repository": "https://github.com/ririnto/ddgs-plugin",
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json"
