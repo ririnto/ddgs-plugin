@@ -1,71 +1,33 @@
 # DDGS MCP
 
-This repository packages the upstream DDGS web search and content extraction MCP server for Claude Code and Codex.
-It contains no search implementation of its own.
-The plugin declares the server configuration and installs the published `ddgs` package at launch.
+Search the web and extract page content through the upstream [DDGS](https://github.com/deedy5/ddgs) MCP server.
 
 ## Runtime
 
-The server runs over stdio through `uvx`.
-The `ddgs[mcp]` requirement installs the optional dependencies the MCP server needs.
-The `--with pip-system-certs` option adds operating system certificate support to the same tool environment.
-Both host configurations also set `UV_SYSTEM_CERTS=true` so `uvx` uses the system certificate verifier when downloading packages.
-This setting requires uv 0.11.0 or later and preserves TLS certificate verification.
-See the [uv certificate documentation](https://docs.astral.sh/uv/concepts/authentication/certificates/).
-The runtime requires `uv` and a Python version supported by the upstream package.
-`uvx` reuses its ephemeral tool environment in the default uv cache between launches.
-Run `uv cache clean` when you want uv to resolve the package again.
+Install uv 0.11.0 or later with `uvx` on PATH and a Python version supported by DDGS. The plugin runs `uvx --from "ddgs[mcp]" --with pip-system-certs ddgs mcp`. It uses the operating system certificate store for package downloads and HTTPS requests.
+Try `search_text` for a web search or `extract_content` to read a URL.
 
 ## Install
 
-Install the plugin from the Sinon marketplace in Claude Code:
+### Claude Code
 
 ```sh
-claude plugin marketplace add ririnto/sinon
-claude plugin install ddgs-plugin@sinon
+claude plugin marketplace add ririnto/ddgs-plugin
+claude plugin install ddgs-plugin@ddgs-plugin
 ```
 
-For local development, load the package in a new session:
+### Codex
 
 ```sh
-claude --plugin-dir .
+codex plugin marketplace add ririnto/ddgs-plugin
+codex plugin add ddgs-plugin@ddgs-plugin
 ```
 
-In Codex, install the plugin from this repository's marketplace and trust the MCP server.
-Start a new session after installation.
+If you already use the Sinon marketplace in either client, install `ddgs-plugin@sinon`.
 
-## MCP Tools
+### Cursor
 
-The upstream server exposes these tools.
+In **Customize**, choose **From GitHub Repository**, enter `https://github.com/ririnto/ddgs-plugin`, and install **DDGS MCP**.
+Start a new Agent conversation after installation.
 
-| Tool | Description |
-| --- | --- |
-| `search_text` | Search the web for text results. |
-| `search_images` | Search for images. |
-| `search_news` | Search for news. |
-| `search_videos` | Search for videos. |
-| `search_books` | Search for books. |
-| `extract_content` | Extract content from a URL. |
-
-`search_text` requires `query` and accepts optional region, safe search, time limit, result count, page, and backend settings.
-`extract_content` requires `url` and accepts an optional format such as `text_markdown` or `text_plain`.
-
-The upstream package owns the tool schemas and their behavior.
-This repository does not modify, wrap, or reimplement them.
-
-## Package contents
-
-- `.claude-plugin/plugin.json` declares the Claude Code plugin.
-- `.codex-plugin/plugin.json` declares the Codex plugin.
-- `.mcp.json` and `mcp.json` register the same stdio server for each host.
-- `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json` publish the self-marketplace.
-
-## Verification
-
-```sh
-pnpm install --frozen-lockfile
-pnpm run check
-```
-
-The check script validates the manifests, the issue forms, the plugin version format, Markdown, and type-aware lint.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution procedure.
+Report vulnerabilities through [private vulnerability reporting](https://github.com/ririnto/ddgs-plugin/security/advisories/new).

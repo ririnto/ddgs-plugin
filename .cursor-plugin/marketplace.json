@@ -1,0 +1,13 @@
+{
+  "name": "ddgs-plugin",
+  "owner": {
+    "name": "ririnto"
+  },
+  "plugins": [
+    {
+      "name": "ddgs-plugin",
+      "source": "./",
+      "description": "DDGS web search and content extraction MCP tools."
+    }
+  ]
+}
